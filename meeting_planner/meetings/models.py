@@ -8,7 +8,7 @@ class Room(models.Model):
     room_number = models.IntegerField()
 
     def __str__(self):
-        return f"{self.name}:room {self.room_number} on floor {self.floor}"
+        return "{self.name}:room {self.room_number} on floor {self.floor}"
 
 
 class Meeting(models.Model):
@@ -16,6 +16,7 @@ class Meeting(models.Model):
     date = models.DateField()
     start_time = models.TimeField(default=time(10))
     duration = models.IntegerField(default=1)
+    room = models.ForeignKey(Room, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.title} at {self.start_time} on {self.date}"
+        return "{self.title} at {self.start_time} on {self.date}"
