@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import path
 
 from website.views import welcome, date, about
-from meetings.views import detail
+from meetings.views import detail, room_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', welcome, name='welcome'),
     path('date', date),
     path('about', about),
-    path('meetings/<int:id>', detail, name='detail')
+    path('meetings/<int:id>', detail, name='detail'),
+    path('rooms', room_list, name="rooms")
 ]
