@@ -4,7 +4,7 @@ from django.http import HttpResponse
 
 
 def welcome(request):
-    return HttpResponse("Welcome to the Meeting Planner!")
+    return render(request, 'website/welcome.html')
 
 
 def date(request):
